@@ -26,14 +26,16 @@ def get_rag_chain():
     prompt_template = PromptTemplate(
         input_variables=["context", "question"],
         template="""
-You are an AI assistant answering questions based on the following context.
+You are an AI assistant. Answer the question using only the context below.
+If the answer is not in the context, reply:
+"I'm sorry, I could not find that information in the document."
 
 Context:
 {context}
 
 Question: {question}
 
-Answer (based only on the context above):
+Answer:
 """
     )
 
